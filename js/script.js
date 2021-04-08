@@ -6,6 +6,12 @@ snake[0] = {
     x: 8 * box,
     y: 8 * box
 }
+
+let highScore = 1;
+function score(){
+ let score = document.querySelector("#highScore").innerHTML = highScore++;
+}
+
 let direction = "right";
 let food = {
     x: Math.floor(Math.random() * 17 + 1) * box,
@@ -78,7 +84,7 @@ function iniciarJogo(){
     }
     else{food.x = Math.floor(Math.random() * 17 + 1) * box;
          food.y = Math.floor(Math.random() * 18 + 1) * box;
-
+         score();
     }
 let newHead = 
 {
@@ -89,6 +95,7 @@ let newHead =
  snake.unshift(newHead);
 
 }
+
 
 
 let jogo  = setInterval(iniciarJogo, 100);
